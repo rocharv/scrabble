@@ -6,7 +6,10 @@ A simple scrabble helper in Python.
 
 For instance, if you type on a terminal:
 			
-    ./scrabble.py en-us.txt brain
+```sh
+$ chmod +x scrabble.py
+$ ./scrabble.py en-us.txt brain 5
+```
 	
 The output is going to be:
 
@@ -16,7 +19,9 @@ The output is going to be:
 
 You also can specify the length of the output words:
 
-    ./scrabble.py en-us.txt brain 5
+```sh
+$ ./scrabble.py en-us.txt brain 5
+```
 
 This will result in:
 
