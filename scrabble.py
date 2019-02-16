@@ -14,7 +14,7 @@ def permutations(dic_file, search, fixed_len):
         for line in f:
             dic.append(line.rstrip().lower())
         f.close
-        print('Dictionary successfully loaded: {} words found.'.format(len(dic)))
+        print('Dictionary successfully loaded: {} words were found.'.format(len(dic)))
 
         # Finds all permutations of searched word with 3 or more characters
         s = []
