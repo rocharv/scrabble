@@ -6,7 +6,7 @@ A simple scrabble helper in Python.
 
 For instance, if you type on a terminal:
 			
-    ./scrabble.py en-us.txt pizza
+    ./scrabble.py en-us.txt brain
 	
 The output is going to be:
 
