@@ -21,7 +21,7 @@ def perm(dict_file, search, fixed_len=-1):
     search_dict = char_count(search)
     # Makes search lowercase
     search = search.lower()
-    
+
     # Reads all words in dictionary and change them to lowercase
     print("Trying to open dictionary file ({})... ".format(dict_file))
     try:
@@ -49,7 +49,7 @@ def perm(dict_file, search, fixed_len=-1):
                 else:
                     word_in_search = False
                     break
-        
+
             if (word_in_search) and (word not in results):
                 results.append(word)
 
