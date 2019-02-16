@@ -54,7 +54,7 @@ def perm(dict_file, search, fixed_len=-1):
                 results.append(word)
 
     f.close
-    return 'Valid word: {}'.format(', '.join(results))
+    return 'Valid words: {}'.format(', '.join(results))
 
 def main():
     if len(argv) == 4:
