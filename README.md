@@ -16,7 +16,7 @@ The output is going to be:
 
 You also can specify the length of the output words:
 
-    ./scrabble.py en-us.txt brain
+    ./scrabble.py en-us.txt brain 5
 
 This will result in:
 
