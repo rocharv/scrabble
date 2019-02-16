@@ -2,7 +2,7 @@
 A simple scrabble word finder in Python.
 
 # Usage
-./scrabble.py [DICTIONARY FILE] [WORD] [OPTIONAL: LENGTH]
+`./scrabble.py [DICTIONARY FILE] [WORD] [OPTIONAL: LENGTH]`
 
 For instance, if you type on a terminal:
 			
