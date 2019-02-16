@@ -1,5 +1,5 @@
 # Scrabble
-A simple scrabble helper in Python.
+A simple scrabble word finder in Python.
 
 # Usage
 ./scrabble.py [DICTIONARY FILE] [WORD] [OPTIONAL: LENGTH]
