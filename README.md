@@ -30,4 +30,5 @@ This will result in:
 	Valid words: abrin, bairn, brain, brian, brina, rabin
     
 # License
-MIT License
+MIT License.
+Very, very permisive licensing.
