@@ -30,4 +30,4 @@ This will result in:
     Valid words: abrin, bairn, brain, brian, brina, rabin
     
 # License
-MIT
+MIT License
