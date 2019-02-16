@@ -1,4 +1,4 @@
-# scrabble
+# Scrabble
 A simple scrabble helper in Python.
 
 # Usage
