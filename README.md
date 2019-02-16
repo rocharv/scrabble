@@ -28,3 +28,6 @@ This will result in:
     Trying to open dictionary file (en-us.txt)... 
     Dictionary successfully loaded: 466544 words were found.
     Valid words: abrin, bairn, brain, brian, brina, rabin
+    
+# License
+MIT
