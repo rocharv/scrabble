@@ -3,7 +3,8 @@ A simple scrabble helper in Python.
 
 # Usage
 ./scrabble.py [DICTIONARY FILE] [WORD] [OPTIONAL: LENGTH]
-  For instance, if you type on a terminal:
+
+For instance, if you type on a terminal:
 			
 			./scrabble.py en-us.txt pizza
 	
