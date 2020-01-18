@@ -1,68 +1,67 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 from sys import argv
-from unicodedata import normalize
+from unicodedata import category, normalize
 
-def clean(txt, codif='utf-8'):
-    return normalize('NFKD', txt.decode(codif)).encode('ASCII','ignore')
 
-def char_count(txt):
-    # Builds a dictionary with the number of chars in the word
-    chars = list(txt) # a list of all chars in the word
-    cdict = {}
+def strip_accents(s):
+    """Return a string identical to s, but removing its accents."""
+    return ''.join(c for c in normalize('NFD', s) if category(c) != 'Mn')
+
+
+def char_count(word):
+    """Return a dictionary with the incidence of each character."""
+    rdict = {}
+    chars = list(word) # turn string into list
     for c in chars:
-        if c not in cdict:
-            cdict[c] = 1
-        else:
-            cdict[c] = cdict[c] + 1
-    return cdict
+            if c in rdict:
+                rdict[c] += 1
+            else:
+                rdict[c] = 1
+    return rdict
 
-def perm(dict_file, search, fixed_len=-1):
-    # Build dictionary of chars of the search word
-    search_dict = char_count(search)
-    # Makes search lowercase
-    search = search.lower()
 
-    # Reads all words in dictionary and change them to lowercase
-    print("Trying to open dictionary file ({})... ".format(dict_file))
+def scrabble(dict_file_name, word, word_len = -1):
+    result = [] # returned word list
+
+    # Parameter confirmation message
+    print("Available letters: {}".format(word))
+    if word_len != -1:
+        print("Searching words with {} letter(s).".format(word_len))
+
+    # Try to open dictionary file
     try:
-        f = open(dict_file, 'r')
+        print("Trying to open dictionary file ({})... ".format(dict_file_name))
+        dict_file = open(dict_file_name, "rt")
     except IOError as err:
         return "{0}".format(err.strerror)
+    print("Success!")
 
-    print('Success!')
+    # Build char_count dictionary for the provided word
+    wcount = char_count(strip_accents(word))
 
-    # Builds dictionary for each word and compares with searched-word dictionary
-    results = []
-    for line in f:
-        word = clean(line.rstrip().lower())
-        word_dict = char_count(word)
+    # Go through each line in the file searching for matching words
+    for line in dict_file:
+        line_word = line.rstrip().lower()
+        no_accents_line_word = strip_accents(line_word)
+        # Build char_count dictionary for the word in the current line
+        lcount = char_count(no_accents_line_word)
+        # Go through each character in the word line
+        word_match = True
+        for lkey in lcount.keys():
+            if lkey not in wcount.keys() or wcount[lkey] < lcount[lkey]:
+                word_match = False
+                break
+        # Append word in line in case of match
+        if word_match and (word_len == -1 or len(line_word) == int(word_len)):
+            result.append(line_word)
 
-        if (fixed_len == -1) or (fixed_len > 0 and len(word) == int(fixed_len)):
+    print("Valid words: {}".format(', '.join(result)))
 
-            # Comparison
-            word_in_search = True
-            for key in word_dict.keys():
-                if key in search_dict.keys():
-                    if word_dict[key] > search_dict[key]:
-                        word_in_search = False
-                        break
-                else:
-                    word_in_search = False
-                    break
 
-            if (word_in_search) and (word not in results):
-                results.append(word)
-
-    f.close
-    return 'Valid words: {}'.format(', '.join(results))
-
-def main():
+if __name__ == "__main__":
     if len(argv) == 4:
-        print(perm(argv[1], argv[2], argv[3]))
+        scrabble(argv[1], argv[2], argv[3])
     elif len(argv) == 3:
-        print(perm(argv[1], argv[2]))
+        scrabble(argv[1], argv[2])
     else:
         print("Usage: scrabble.py [DICTIONARY FILE] [WORD] [OPTIONAL: LENGTH]")
-
-if __name__ == '__main__':
-    main()
