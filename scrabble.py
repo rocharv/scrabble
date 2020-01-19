@@ -24,7 +24,7 @@ def scrabble(dict_file_name, word, word_len = -1):
     result = [] # returned word list
 
     # Parameter confirmation message
-    print("Available letters: {}".format(word))
+    print("Available letters: {}".format(', '.join(list(word))))
     if word_len != -1:
         print("Searching words with {} letter(s).".format(word_len))
 
