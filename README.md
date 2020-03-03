@@ -13,12 +13,9 @@ $ ./scrabble.py en-us.txt brain
 
 The output is going to be:
 
-	Available letters: b, r, a, i, n
-	
+	Available letters: b, r, a, i, n	
 	Trying to open dictionary file (en-us.txt)...
-	
-	Success!
-	
+	Success!	
 	Valid words: a, ab, abi, abir, abn, abr, abri, abrin, ai, ain, air, airn, an, ani, ar, arb, ari, arin, arn, arni, b, ba, bai, bain, bairn, ban, bani, bar, bari, barn, bi, bia, bin, bina, birn, bn, br, bra, brain, bran, bri, bria, brian, brin, brina, brn, i, ia, iab, ian, ib, iba, iban, ibn, in, ina, ir, ira, iran, irn, n, na, nab, naib, nair, nar, nari, nb, nba, ni, nia, nib, nir, nira, nr, nra, nrab, r, ra, rab, rabi, rabin, rai, rain, ran, rani, rb, rbi, ri, ria, rib, riba, rin, rina, rn, rna
 
 You also can specify the length of the output words:
